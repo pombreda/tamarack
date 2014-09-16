@@ -1,0 +1,12 @@
+{application, tamarack,
+ [
+  {description, "Web Application Profiler"},
+  {vsn, "1"},
+  {registered, [tamarack]},
+  {applications, [
+                  kernel,
+                  stdlib, cowboy
+                 ]},
+  {mod, { tamarack_app, []}},
+  {env, []}
+ ]}.

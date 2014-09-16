@@ -1,0 +1,9 @@
+.eunit/
+.rebar/
+ebin/
+deps/
+node_modules/
+target/
+priv/static/
+
+erl_crash.dump

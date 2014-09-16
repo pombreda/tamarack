@@ -1,0 +1,16 @@
+{
+    "name": "tamarack",
+    "version": "0.0.0",
+
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/tamarackapp/tamarack"
+    },
+
+    "dependencies": {
+        "karma": "~0.12.16",
+        "karma-phantomjs-launcher": "~0.1.4",
+        "karma-jasmine": "~0.1.5",
+        "react-externs": "git://github.com/steida/react-externs.git"
+    }
+}

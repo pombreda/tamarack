@@ -1,0 +1,21 @@
+language: erlang
+otp_release:
+  - 17.1
+
+before_script:
+  - sudo apt-add-repository -y ppa:chris-lea/node.js
+  - sudo apt-get update -q
+  - sudo apt-get install phantomjs nodejs openjdk-7-jdk
+
+  - curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+  - chmod 755 lein
+
+  - npm install
+
+  - pip install -e '.'
+  - pip install -e '.[tests]'
+
+script:
+  - bash ./lein cljsbuild once
+  - py.test
+  - ./node_modules/karma/bin/karma start --single-run
