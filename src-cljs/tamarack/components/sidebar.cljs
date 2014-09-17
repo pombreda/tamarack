@@ -11,9 +11,25 @@
 
 (defn- app-items [view app]
   (html
-   [:ol
-    [:li {:class (when (= view :app-dashboard) "active")}
-     [:a {:href (string/join "/" [ "#/applications" (:name app)])} "Dashboard"]]]))
+   [:ol.outer
+    [:li
+     [:a {:href "#"} "Applications"]
+     [:ol
+      [:li.active
+       [:a {:href (string/join "/" [ "#/applications" (:name app)])} "Dashboard"]]]]]))
+
+(defn- app-endpoint-items [view app endpoint]
+  (html
+   [:ol.outer
+    [:li
+     [:a {:href "#"} "Applications"]
+     [:ol.outer
+      [:li
+       [:a {:href (string/join "/" [ "#/applications" (:name app)])} "Dashboard"]
+       [:ol
+        [:li.active
+         [:a {:href (string/join "/" [ "#/applications" (:name app) app])}
+          "Endpoint"]]]]]]]))
 
 (defn component [app owner]
   (reify
@@ -25,7 +41,10 @@
       (case (:view app)
         :all-apps (all-apps-items)
 
-        (:app-dashboard :app-endpoint-overview)
+        :app-dashboard
         (app-items (:view app) (:current-app app))
+
+        :app-endpoint-overview
+        (app-endpoint-items (:view app) (:current-app app) (:current-endpoint app))
         
         (html [:ol])))))

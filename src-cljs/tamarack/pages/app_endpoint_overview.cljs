@@ -25,7 +25,7 @@
         [:div.row [:div.col-md-12 [:h2 "Endpoint Overiew for \"" (:current-endpoint app) "\""]]]
 
         [:div.row
-         [:div.col-md-9
+         [:div.col-md-12
           [:div.row
            [:div.col-md-4
             [:h3 "Time per Request"]
